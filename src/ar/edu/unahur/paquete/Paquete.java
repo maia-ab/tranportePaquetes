@@ -6,7 +6,6 @@ public class Paquete {
 	private Double ancho;
 	private Double alto;
 	private Double profundo;
-	private String destino;
 	private Ciudad ciudadDestino;
 	private int peso;
 
@@ -21,10 +20,6 @@ public class Paquete {
 
 	public Double volumen() {
 		return (this.ancho*this.alto*this.profundo) / 1000000;
-	}
-
-	public String destino() {
-		return this.destino;
 	}
 
 	public Ciudad ciudadDestino() {

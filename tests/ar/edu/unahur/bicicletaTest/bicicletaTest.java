@@ -37,7 +37,21 @@ public class bicicletaTest {
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 	@Test
-	public void unAlIniciarUnaBicicletaNoTieneCiudadDestino(){
+	public void unaBicicletaNoPuedeLlevarUnPaqueteConPeso20(){
+		Boolean valorEsperado = Boolean.FALSE;
+		Boolean valorObtenido = Boolean.TRUE;
+		
+		Ciudad moron = new Ciudad();
+		Paquete paquete = new Paquete(50.0,20.0,9.0,20, moron);
+		Bicicleta bicicleta = new Bicicleta();
+		bicicleta.agregarCiudad(moron);
+		//
+		valorObtenido = bicicleta.puedeLlevar(paquete);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
+	@Test
+	public void alIniciarUnaBicicletaNoTieneCiudadDestino(){
 		int valorEsperado = 0;
 		int valorObtenido = 1;
 		Bicicleta bicicleta = new Bicicleta();
@@ -110,6 +124,38 @@ public class bicicletaTest {
 		//
 		bicicleta.llevar(paquete1);
 		valorObtenido = bicicleta.puedeLlevar(paquete2);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
+	@Test
+	public void siYaHayUnPaqueteConVolumen0096NoPuedoAgregarOtroDeEseMismoVolumenPorqueSuperaElMaximoPermitido(){
+		Boolean valorEsperado = Boolean.FALSE;
+		Boolean valorObtenido = Boolean.TRUE;
+		Ciudad moron = new Ciudad();
+
+		
+		Paquete paquete1 = new Paquete(40.0,60.0,40.0,10, moron);
+		Paquete paquete2 = new Paquete(40.0,60.0,40.0,2, moron);
+		
+		Bicicleta bicicleta = new Bicicleta();
+		//
+		bicicleta.llevar(paquete1);
+		valorObtenido = bicicleta.puedeLlevar(paquete2);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
+	
+	@Test
+	public void siLaBicicletaYaTieneUnaCiudadAsignadaNoSeLePuedeAgregarOtra(){
+		Boolean valorEsperado = Boolean.FALSE;
+		Boolean valorObtenido = Boolean.TRUE;
+		//
+		Bicicleta bicicleta = new Bicicleta();
+		Ciudad haedo = new Ciudad();
+		bicicleta.agregarCiudad(new Ciudad());
+		bicicleta.agregarCiudad(haedo);
+		//
+		valorObtenido = bicicleta.abarca(haedo);
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}

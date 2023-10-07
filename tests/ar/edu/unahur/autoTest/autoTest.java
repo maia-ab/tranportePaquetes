@@ -9,19 +9,14 @@ import ar.edu.unahur.paquete.Paquete;
 
 public class autoTest {
 	@Test
-	public void unAutoPuedeLlevarUnPaqueteConVolumen1coma6PesoDe100KgYCiudadMoron(){
+	public void unAutoPuedeLlevarUnPaqueteConVolumen1coma6PesoDe100KgYCiudadRamos(){
 		Boolean valorEsperado = Boolean.TRUE;
 		Boolean valorObtenido = Boolean.FALSE;
-		
-		Ciudad moron = new Ciudad();
+		//
 		Ciudad ramos = new Ciudad();
-		Ciudad ituzaingo = new Ciudad();
 		Paquete paquete = new Paquete(100.0,200.0,80.0,100, ramos);
 		Automovil auto = new Automovil();
-
-		auto.agregarCiudad(moron);
 		auto.agregarCiudad(ramos);
-		auto.agregarCiudad(ituzaingo);
 		//
 		valorObtenido = auto.puedeLlevar(paquete);
 		//
@@ -33,16 +28,21 @@ public class autoTest {
 		Boolean valorObtenido = Boolean.TRUE;
 		
 		Ciudad moron = new Ciudad();
-		Ciudad ramos = new Ciudad();
-		Ciudad ituzaingo = new Ciudad();
 		Paquete paquete = new Paquete(100.0,200.0,80.0,100, new Ciudad());
 		Automovil auto = new Automovil();
-
 		auto.agregarCiudad(moron);
-		auto.agregarCiudad(ramos);
-		auto.agregarCiudad(ituzaingo);
 		//
 		valorObtenido = auto.puedeLlevar(paquete);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
+	@Test
+	public void alIniciarUnAutoNoTieneCiudadesQueAbarca(){
+		int valorEsperado = 0;
+		int valorObtenido = 1;
+		Automovil auto = new Automovil();
+		//
+		valorObtenido = auto.cantidadDeCiudades();
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}

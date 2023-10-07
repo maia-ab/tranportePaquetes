@@ -47,4 +47,34 @@ public class CamionTest {
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
+	@Test
+	public void siYaHayUnPaqueteConPeso14000EnElCamionNoPuedoAgregarUnPaqueteDePeso10000(){
+		Boolean valorEsperado = Boolean.FALSE;
+		Boolean valorObtenido = Boolean.TRUE;
+
+		Paquete paquete1 = new Paquete(400.0,200.0,100.0,14000, new Ciudad());
+		Paquete paquete2 = new Paquete(400.0,200.0,100.0,10000, new Ciudad());
+		Camion camion = new Camion();
+		camion.llevar(paquete1);
+
+		//
+		valorObtenido = camion.puedeLlevar(paquete2);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
+	@Test
+	public void siYaHayUnPaqueteConVolumen8EnElCamionNoPuedoAgregarUnPaqueteConVolumen15(){
+		Boolean valorEsperado = Boolean.FALSE;
+		Boolean valorObtenido = Boolean.TRUE;
+
+		Paquete paquete1 = new Paquete(400.0,200.0,100.0,10000, new Ciudad());
+		Paquete paquete2 = new Paquete(300.0,500.0,100.0,5000, new Ciudad());
+		Camion camion = new Camion();
+		camion.llevar(paquete1);
+
+		//
+		valorObtenido = camion.puedeLlevar(paquete2);
+		//
+		Assert.assertEquals(valorEsperado, valorObtenido);	
+	}
 }
