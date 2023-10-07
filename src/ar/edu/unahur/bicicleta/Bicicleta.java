@@ -1,35 +1,26 @@
 package ar.edu.unahur.bicicleta;
 
-
-import ar.edu.unahur.ciudad.Ciudad;
+import ar.edu.unahur.automovil.Automovil;
 import ar.edu.unahur.paquete.Paquete;
-import ar.edu.unahur.transporte.Transporte;
 
-public class Bicicleta extends Transporte{
-	private Ciudad ciudad;
+
+public class Bicicleta extends Automovil{
 	
 	public Bicicleta() {
 		this.maxPeso = 15;
 		this.maxVolumen = 0.125;
+		this.maximoCiudad = 1;
 	}
-	
-	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
-		return cargo.size() < 2 && paquete.ciudadDestino() == this.ciudad;
-	}
-
-	public Ciudad ciudad() {
-		return this.ciudad;
-	};
 	
 	@Override
-	public Boolean puedeLlevar(Paquete paquete) {
-		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
+	public boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
+		return super.condicionesAdicionalesParaLlevar(paquete) && cargo.size() < 2;
 	}
-	
+	 
 	@Override
 	public void llevar(Paquete paqueteALlevar){
-		if(cargo.isEmpty() && this.condicionesParaLlevarPaquete(paqueteALlevar)) {
-			this.ciudad = paqueteALlevar.ciudadDestino();
+		if(cargo.isEmpty() && super.condicionesParaLlevarPaquete(paqueteALlevar)) {
+			super.agregarCiudad(paqueteALlevar.ciudadDestino());
 		}
 		super.llevar(paqueteALlevar); 
 	}

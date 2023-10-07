@@ -12,9 +12,11 @@ public class bicicletaTest {
 	public void unaBicicletaPuedeLlevarUnPaqueteConVolumen0009PesoDe5KgYCiudadMoron(){
 		Boolean valorEsperado = Boolean.TRUE;
 		Boolean valorObtenido = Boolean.FALSE;
-	
-		Paquete paquete = new Paquete(50.0,20.0,9.0,5, null);
+		
+		Ciudad moron = new Ciudad();
+		Paquete paquete = new Paquete(50.0,20.0,9.0,5, moron);
 		Bicicleta bicicleta = new Bicicleta();
+		bicicleta.agregarCiudad(moron);
 		//
 		valorObtenido = bicicleta.puedeLlevar(paquete);
 		//
@@ -25,8 +27,10 @@ public class bicicletaTest {
 		Boolean valorEsperado = Boolean.FALSE;
 		Boolean valorObtenido = Boolean.TRUE;
 		
-		Paquete paquete = new Paquete(100.0,200.0,80.0,5, null);
+		Ciudad moron = new Ciudad();
+		Paquete paquete = new Paquete(100.0,200.0,80.0,5, moron);
 		Bicicleta bicicleta = new Bicicleta();
+		bicicleta.agregarCiudad(moron);
 		//
 		valorObtenido = bicicleta.puedeLlevar(paquete);
 		//
@@ -34,24 +38,24 @@ public class bicicletaTest {
 	}
 	@Test
 	public void unAlIniciarUnaBicicletaNoTieneCiudadDestino(){
-		Ciudad valorEsperado = null;
-		Ciudad valorObtenido = new Ciudad();
+		int valorEsperado = 0;
+		int valorObtenido = 1;
 		Bicicleta bicicleta = new Bicicleta();
 		//
-		valorObtenido = bicicleta.ciudad();
+		valorObtenido = bicicleta.cantidadDeCiudades();
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 	@Test
-	public void alLlevarUnPrimerPaqueteConDestinoMoronLaCiudadDeLaBicicletaEsMoron(){
+	public void alLlevarUnPrimerPaqueteConDestinoMoronLaCiudadQueAbarcaLaBicicletaAhoraEsMoron(){
 		Ciudad moron = new Ciudad();
-		Ciudad valorEsperado = moron;
-		Ciudad valorObtenido = new Ciudad();
+		Boolean valorEsperado = Boolean.TRUE;
+		Boolean valorObtenido = Boolean.FALSE;
 		Bicicleta bicicleta = new Bicicleta();
 		//
 		Paquete paquete = new Paquete(50.0,20.0,9.0,5, moron);
 		bicicleta.llevar(paquete);
-		valorObtenido = bicicleta.ciudad();
+		valorObtenido = bicicleta.abarca(moron);
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
@@ -110,15 +114,4 @@ public class bicicletaTest {
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 
-	/*
-	@Test
-	public void unPaqueteSinCiudadDestinoTomaElDestinoDelPrimerPaqueteQueLleva(){
-		int valorEsperado = 10;
-		int valorObtenido = 0;
-		Paquete paquete = dadoQueExisteUnPaquete();
-		//
-		valorObtenido = paquete.peso();
-		//
-		Assert.assertEquals(valorEsperado, valorObtenido);	
-	}*/
 }
