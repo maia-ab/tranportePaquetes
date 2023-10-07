@@ -33,11 +33,12 @@ public class bicicletaTest {
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 	@Test
-	public void unaBicicletaNoPuedeLlevarUnPaqueteDe20kg(){
+	public void unaBicicletaDeLaCiudadDeMoronNoPuedeLlevarPaqueteConCiudadDestinoItuzaingo(){
 		Boolean valorEsperado = Boolean.FALSE;
 		Boolean valorObtenido = Boolean.TRUE;
 		Ciudad moron = new Ciudad();
-		Paquete paquete = new Paquete(50.0,20.0,9.0,20,"", moron);
+		Ciudad ituzaingo = new Ciudad();
+		Paquete paquete = new Paquete(50.0,20.0,9.0,5,"", ituzaingo);
 		Bicicleta bicicleta = new Bicicleta(moron);
 		//
 		valorObtenido = bicicleta.puedeLlevar(paquete);
