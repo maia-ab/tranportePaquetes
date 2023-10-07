@@ -3,9 +3,8 @@ package ar.edu.unahur.autoTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.edu.unahur.bicicleta.Bicicleta;
 import ar.edu.unahur.ciudad.Ciudad;
-import ar.edu.unahur.paqueteTest.Paquete;
+import ar.edu.unahur.paquete.Paquete;
 
 public class autoTest {
 	@Test

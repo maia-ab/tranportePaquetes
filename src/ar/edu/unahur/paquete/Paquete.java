@@ -1,4 +1,4 @@
-package ar.edu.unahur.paqueteTest;
+package ar.edu.unahur.paquete;
 
 import ar.edu.unahur.ciudad.Ciudad;
 

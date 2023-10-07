@@ -1,16 +1,12 @@
 package ar.edu.unahur.bicicleta;
 
-import java.util.ArrayList;
 
 import ar.edu.unahur.ciudad.Ciudad;
-import ar.edu.unahur.paqueteTest.Paquete;
+import ar.edu.unahur.paquete.Paquete;
+import ar.edu.unahur.transporte.Transporte;
 
-public class Bicicleta {
-
+public class Bicicleta extends Transporte{
 	private Ciudad ciudad;
-	private Double maxVolumen;
-	private ArrayList<Paquete> cargo = new ArrayList<Paquete>();
-	private int maxPeso;
 	
 	public Bicicleta() {
 		this.maxPeso = 15;
@@ -18,45 +14,14 @@ public class Bicicleta {
 	}
 	
 
+	@Override
 	public Boolean puedeLlevar(Paquete paquete) {
-		return this.condicionesParaLlevarPaquete(paquete) && this.condicionesAdicionalesParaLlevar(paquete);
+		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
 	}
 
 
 	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
 		return cargo.size() < 2 && paquete.ciudadDestino() == this.ciudad;
-	}
-
-
-	private boolean condicionesParaLlevarPaquete(Paquete paquete) {
-		Boolean ret = Boolean.FALSE;
-		
-		if (paquete.volumen() <= maxVolumen - this.volumenACargo() 
-			&& paquete.peso() <= maxPeso - this.pesoACargo() 
-			) {
-			ret = Boolean.TRUE;
-		}
-		return ret;
-	}
-
-	private int pesoACargo() {
-		int ret = 0;
-		if (!(cargo.isEmpty())) {
-			for (int i = 0; i < cargo.size(); i++) {
-				ret += cargo.get(i).peso();
-			}
-		}
-		return ret;
-	}
-
-	private Double volumenACargo() {
-		Double ret = 0.0;
-		if (!(cargo.isEmpty())) {
-			for (int i = 0; i < cargo.size(); i++) {
-				ret += cargo.get(i).volumen();
-			}
-		}
-		return ret;
 	}
 
 	public Ciudad ciudad() {

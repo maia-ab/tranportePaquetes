@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import ar.edu.unahur.ciudad.Ciudad;
+import ar.edu.unahur.paquete.Paquete;
 
 public class paqueteTest {
 

@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import ar.edu.unahur.camion.Camion;
 import ar.edu.unahur.ciudad.Ciudad;
-import ar.edu.unahur.paqueteTest.Paquete;
+import ar.edu.unahur.paquete.Paquete;
 
 public class CamionTest {
 	@Test
