@@ -28,57 +28,21 @@ public class paqueteTest {
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}	
-	
-	/*
-	@Test
-	public void unPaqueteConDestinoLobos222TieneEseDestino(){
-		String valorEsperado = "Lobos 222";
-		String valorObtenido = "";
-		Paquete paquete = dadoQueExisteUnPaquete();
-		//
-		valorObtenido = paquete.destino();
-		//
-		Assert.assertEquals(valorEsperado, valorObtenido);	
-	}
-	
+
 	@Test
 	public void unPaqueteConCiudadDestinoMoronTieneAMoronComoCiudadDeDestino(){
 		Ciudad moron = new Ciudad();
 		Ciudad valorEsperado = moron;
 		Ciudad valorObtenido = new Ciudad();
-		Paquete paquete = new Paquete(50.0,20.0,9.0,10, "Lobos 222", moron);
+		Paquete paquete = new Paquete(50.0,20.0,9.0,10, moron);
 		//
 		valorObtenido = paquete.ciudadDestino();
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
-	}*/
-	public Paquete dadoQueExisteUnPaquete(){
-		return new Paquete(50.0,20.0,9.0,10, "Lobos 222", new Ciudad());
-	}
-	/*
-	@Test
-	public void elDestinoDelPaqueteConDestinoLobos222EstaEnLaCiudadMoron(){
-		Boolean valorEsperado = Boolean.TRUE;
-		Boolean valorObtenido = Boolean.FALSE;
-		Paquete paquete = new Paquete(50.0,20.0,9.0, "Lobos 222");
-		//
-		Ciudad moron = dadoQueExisteCiudadMoron();
-		valorObtenido = moron.existeDestino(paquete.destino());
-		//
-		Assert.assertEquals(valorEsperado, valorObtenido);	
 	}
 	
-	@Test
-	public void elDestinoDelPaqueteConDestinoLavalle444NoEstaEnLaCiudadMoron(){
-		Boolean valorEsperado = Boolean.FALSE;
-		Boolean valorObtenido = Boolean.TRUE;
-		Paquete paquete = new Paquete(50.0,20.0,9.0, "Lavalle 444");
-		//
-		Ciudad moron = dadoQueExisteCiudadMoron();
-		valorObtenido = moron.existeDestino(paquete.destino());
-		//
-		Assert.assertEquals(valorEsperado, valorObtenido);	
+	public Paquete dadoQueExisteUnPaquete(){
+		return new Paquete(50.0,20.0,9.0,10, new Ciudad());
 	}
-	*/
 
 }

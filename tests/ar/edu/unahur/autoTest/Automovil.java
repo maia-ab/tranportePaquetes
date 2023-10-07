@@ -22,7 +22,7 @@ public class Automovil extends Transporte{
 	public Boolean puedeLlevar(Paquete paquete) {
 		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
 	}
-	
+	 
 
 	public void agregarCiudad(Ciudad ciudad) {
 		if(ciudades.size() < 3 && (!(ciudades.contains(ciudad)))) {

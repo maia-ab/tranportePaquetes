@@ -11,17 +11,15 @@ public class Paquete {
 	private int peso;
 
 	public Paquete(Double ancho, Double alto, Double profundo, int peso, 
-		String destino, Ciudad ciudadDestino) {
+		Ciudad ciudadDestino) {
 		this.ancho = ancho;
 		this.alto = alto;
 		this.profundo = profundo;
-		this.destino = destino;
 		this.ciudadDestino = ciudadDestino;
 		this.peso = peso;
 	}
 
 	public Double volumen() {
-		// TODO Auto-generated method stub
 		return (this.ancho*this.alto*this.profundo) / 1000000;
 	}
 
