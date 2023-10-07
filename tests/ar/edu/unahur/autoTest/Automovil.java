@@ -1,33 +1,21 @@
-package ar.edu.unahur.bicicleta;
+package ar.edu.unahur.autoTest;
 
 import java.util.ArrayList;
 
 import ar.edu.unahur.ciudad.Ciudad;
 import ar.edu.unahur.paqueteTest.Paquete;
 
-public class Bicicleta {
-
-	private Ciudad ciudad;
+public class Automovil {
 	private Double maxVolumen;
-	private ArrayList<Paquete> cargo = new ArrayList<Paquete>();
 	private int maxPeso;
+	private ArrayList<Paquete> cargo = new ArrayList<Paquete>();
+	private ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
 	
-	public Bicicleta() {
-		this.maxPeso = 15;
-		this.maxVolumen = 0.125;
+	public Automovil() {
+		this.maxPeso = 500;
+		this.maxVolumen = 2.0;
 	}
 	
-
-	public Boolean puedeLlevar(Paquete paquete) {
-		return this.condicionesParaLlevarPaquete(paquete) && this.condicionesAdicionalesParaLlevar(paquete);
-	}
-
-
-	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
-		return cargo.size() < 2 && paquete.ciudadDestino() == this.ciudad;
-	}
-
-
 	private boolean condicionesParaLlevarPaquete(Paquete paquete) {
 		Boolean ret = Boolean.FALSE;
 		
@@ -37,6 +25,10 @@ public class Bicicleta {
 			ret = Boolean.TRUE;
 		}
 		return ret;
+	}
+	
+	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
+		return ciudades.contains(paquete.ciudadDestino());
 	}
 
 	private int pesoACargo() {
@@ -58,19 +50,33 @@ public class Bicicleta {
 		}
 		return ret;
 	}
+	
+	
 
-	public Ciudad ciudad() {
-		return this.ciudad;
-	};
-
+	public Boolean puedeLlevar(Paquete paquete) {
+		return this.condicionesParaLlevarPaquete(paquete) && this.condicionesAdicionalesParaLlevar(paquete);
+	}
+	
 	public void llevar(Paquete paqueteALlevar){
-		if(cargo.isEmpty() && this.condicionesParaLlevarPaquete(paqueteALlevar)) {
-			this.ciudad = paqueteALlevar.ciudadDestino();
-		}
-
 		if(this.puedeLlevar(paqueteALlevar)) {
 			cargo.add(paqueteALlevar);
 		}
 	}
+
+	public void agregarCiudad(Ciudad ciudad) {
+		if(ciudades.size() < 3 && (!(ciudades.contains(ciudad)))) {
+			ciudades.add(ciudad);
+		}
+	}
+
+	public Boolean abarca(Ciudad ciudad) {
+		return this.ciudades.contains(ciudad);
+	}
+
+	public int cantidadDeCiudades() {
+		return this.ciudades.size();
+	}
+
 	
+
 }
