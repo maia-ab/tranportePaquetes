@@ -12,24 +12,24 @@ public class Bicicleta {
 	ArrayList<Paquete> cargo = new ArrayList<Paquete>();
 	private int maxPeso = 15;
 
-	public Bicicleta(Ciudad ciudad) {
-		this.ciudad = ciudad;
-	}
+	
 
 	public Boolean puedeLlevar(Paquete paquete) {
-		return this.condicionesParaLlevarPaquete(paquete) && this.condicionAdicional();
+		return this.condicionesParaLlevarPaquete(paquete) && this.condicionesAdicionalesParaLlevar(paquete);
 	}
 
-	private boolean condicionAdicional() {
-		return cargo.size() < 2;
+
+	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
+		return cargo.size() < 2 && paquete.ciudadDestino() == this.ciudad;
 	}
+
 
 	private boolean condicionesParaLlevarPaquete(Paquete paquete) {
 		Boolean ret = Boolean.FALSE;
 		
-		if (paquete.volumen() < maxVolumen - this.volumenACargo() 
-			&& paquete.peso() < maxPeso - this.pesoACargo() 
-			&& paquete.ciudadDestino() == this.ciudad) {
+		if (paquete.volumen() <= maxVolumen - this.volumenACargo() 
+			&& paquete.peso() <= maxPeso - this.pesoACargo() 
+			) {
 			ret = Boolean.TRUE;
 		}
 		return ret;
@@ -53,6 +53,20 @@ public class Bicicleta {
 			}
 		}
 		return ret;
+	}
+
+	public Ciudad ciudad() {
+		return this.ciudad;
+	};
+
+	public void llevar(Paquete paqueteALlevar){
+		if(cargo.isEmpty() && this.condicionesParaLlevarPaquete(paqueteALlevar)) {
+			this.ciudad = paqueteALlevar.ciudadDestino();
+		}
+
+		if(this.puedeLlevar(paqueteALlevar)) {
+			cargo.add(paqueteALlevar);
+		}
 	}
 	
 }

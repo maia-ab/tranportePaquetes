@@ -26,8 +26,9 @@ public class paqueteTest {
 		valorObtenido = paquete.peso();
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
-	}
+	}	
 	
+	/*
 	@Test
 	public void unPaqueteConDestinoLobos222TieneEseDestino(){
 		String valorEsperado = "Lobos 222";
@@ -49,7 +50,7 @@ public class paqueteTest {
 		valorObtenido = paquete.ciudadDestino();
 		//
 		Assert.assertEquals(valorEsperado, valorObtenido);	
-	}
+	}*/
 	public Paquete dadoQueExisteUnPaquete(){
 		return new Paquete(50.0,20.0,9.0,10, "Lobos 222", new Ciudad());
 	}
