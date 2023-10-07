@@ -23,11 +23,6 @@ public class Automovil extends Transporte{
 		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
 	}
 	
-	public void llevar(Paquete paqueteALlevar){
-		if(this.puedeLlevar(paqueteALlevar)) {
-			cargo.add(paqueteALlevar);
-		}
-	}
 
 	public void agregarCiudad(Ciudad ciudad) {
 		if(ciudades.size() < 3 && (!(ciudades.contains(ciudad)))) {
@@ -42,7 +37,5 @@ public class Automovil extends Transporte{
 	public int cantidadDeCiudades() {
 		return this.ciudades.size();
 	}
-
-	
 
 }

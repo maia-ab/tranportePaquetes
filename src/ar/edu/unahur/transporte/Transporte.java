@@ -13,6 +13,11 @@ public abstract class Transporte {
 		return this.condicionesParaLlevarPaquete(paquete);
 	}
 	
+	public void llevar(Paquete paqueteALlevar){
+		if(this.puedeLlevar(paqueteALlevar)) {
+			cargo.add(paqueteALlevar);
+		}
+	}
 
 	protected boolean condicionesParaLlevarPaquete(Paquete paquete) {
 		Boolean ret = Boolean.FALSE;

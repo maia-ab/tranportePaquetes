@@ -13,13 +13,6 @@ public class Bicicleta extends Transporte{
 		this.maxVolumen = 0.125;
 	}
 	
-
-	@Override
-	public Boolean puedeLlevar(Paquete paquete) {
-		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
-	}
-
-
 	private boolean condicionesAdicionalesParaLlevar(Paquete paquete) {
 		return cargo.size() < 2 && paquete.ciudadDestino() == this.ciudad;
 	}
@@ -27,15 +20,18 @@ public class Bicicleta extends Transporte{
 	public Ciudad ciudad() {
 		return this.ciudad;
 	};
-
+	
+	@Override
+	public Boolean puedeLlevar(Paquete paquete) {
+		return super.puedeLlevar(paquete) && condicionesAdicionalesParaLlevar(paquete);
+	}
+	
+	@Override
 	public void llevar(Paquete paqueteALlevar){
 		if(cargo.isEmpty() && this.condicionesParaLlevarPaquete(paqueteALlevar)) {
 			this.ciudad = paqueteALlevar.ciudadDestino();
 		}
-
-		if(this.puedeLlevar(paqueteALlevar)) {
-			cargo.add(paqueteALlevar);
-		}
+		super.llevar(paqueteALlevar); 
 	}
 	
 }
