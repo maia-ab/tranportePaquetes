@@ -3,6 +3,7 @@ package ar.edu.unahur.autoTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.edu.unahur.automovil.Automovil;
 import ar.edu.unahur.ciudad.Ciudad;
 import ar.edu.unahur.paquete.Paquete;
 
@@ -15,7 +16,7 @@ public class autoTest {
 		Ciudad moron = new Ciudad();
 		Ciudad ramos = new Ciudad();
 		Ciudad ituzaingo = new Ciudad();
-		Paquete paquete = new Paquete(100.0,200.0,80.0,100,"", ramos);
+		Paquete paquete = new Paquete(100.0,200.0,80.0,100, ramos);
 		Automovil auto = new Automovil();
 
 		auto.agregarCiudad(moron);
@@ -34,7 +35,7 @@ public class autoTest {
 		Ciudad moron = new Ciudad();
 		Ciudad ramos = new Ciudad();
 		Ciudad ituzaingo = new Ciudad();
-		Paquete paquete = new Paquete(100.0,200.0,80.0,100,"", new Ciudad());
+		Paquete paquete = new Paquete(100.0,200.0,80.0,100, new Ciudad());
 		Automovil auto = new Automovil();
 
 		auto.agregarCiudad(moron);

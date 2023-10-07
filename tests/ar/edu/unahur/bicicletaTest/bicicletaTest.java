@@ -13,7 +13,7 @@ public class bicicletaTest {
 		Boolean valorEsperado = Boolean.TRUE;
 		Boolean valorObtenido = Boolean.FALSE;
 	
-		Paquete paquete = new Paquete(50.0,20.0,9.0,5,"Lobos 222", null);
+		Paquete paquete = new Paquete(50.0,20.0,9.0,5, null);
 		Bicicleta bicicleta = new Bicicleta();
 		//
 		valorObtenido = bicicleta.puedeLlevar(paquete);
@@ -25,7 +25,7 @@ public class bicicletaTest {
 		Boolean valorEsperado = Boolean.FALSE;
 		Boolean valorObtenido = Boolean.TRUE;
 		
-		Paquete paquete = new Paquete(100.0,200.0,80.0,5,"", null);
+		Paquete paquete = new Paquete(100.0,200.0,80.0,5, null);
 		Bicicleta bicicleta = new Bicicleta();
 		//
 		valorObtenido = bicicleta.puedeLlevar(paquete);
@@ -49,7 +49,7 @@ public class bicicletaTest {
 		Ciudad valorObtenido = new Ciudad();
 		Bicicleta bicicleta = new Bicicleta();
 		//
-		Paquete paquete = new Paquete(50.0,20.0,9.0,5,"", moron);
+		Paquete paquete = new Paquete(50.0,20.0,9.0,5, moron);
 		bicicleta.llevar(paquete);
 		valorObtenido = bicicleta.ciudad();
 		//
@@ -62,8 +62,8 @@ public class bicicletaTest {
 		Ciudad moron = new Ciudad();
 		Ciudad ituzaingo = new Ciudad();
 		
-		Paquete paquete1 = new Paquete(50.0,20.0,9.0,5,"", moron);
-		Paquete paquete2 = new Paquete(50.0,20.0,9.0,5,"", ituzaingo);
+		Paquete paquete1 = new Paquete(50.0,20.0,9.0,5, moron);
+		Paquete paquete2 = new Paquete(50.0,20.0,9.0,5, ituzaingo);
 		
 		Bicicleta bicicleta = new Bicicleta();
 		//
@@ -79,9 +79,9 @@ public class bicicletaTest {
 		Ciudad moron = new Ciudad();
 
 		
-		Paquete paquete1 = new Paquete(50.0,20.0,9.0,5,"", moron);
-		Paquete paquete2 = new Paquete(50.0,20.0,9.0,5,"", moron);
-		Paquete paquete3 = new Paquete(50.0,20.0,9.0,1,"", moron);
+		Paquete paquete1 = new Paquete(50.0,20.0,9.0,5, moron);
+		Paquete paquete2 = new Paquete(50.0,20.0,9.0,5, moron);
+		Paquete paquete3 = new Paquete(50.0,20.0,9.0,1, moron);
 		
 		Bicicleta bicicleta = new Bicicleta();
 		//
@@ -99,8 +99,8 @@ public class bicicletaTest {
 		Ciudad moron = new Ciudad();
 
 		
-		Paquete paquete1 = new Paquete(50.0,20.0,9.0,10,"", moron);
-		Paquete paquete2 = new Paquete(50.0,20.0,9.0,7,"", moron);
+		Paquete paquete1 = new Paquete(50.0,20.0,9.0,10, moron);
+		Paquete paquete2 = new Paquete(50.0,20.0,9.0,7, moron);
 		
 		Bicicleta bicicleta = new Bicicleta();
 		//

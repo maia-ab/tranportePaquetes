@@ -1,4 +1,4 @@
-package ar.edu.unahur.autoTest;
+package ar.edu.unahur.automovil;
 
 import java.util.ArrayList;
 
@@ -39,3 +39,4 @@ public class Automovil extends Transporte{
 	}
 
 }
+

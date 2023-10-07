@@ -13,7 +13,7 @@ public class CamionTest {
 		Boolean valorEsperado = Boolean.TRUE;
 		Boolean valorObtenido = Boolean.FALSE;
 
-		Paquete paquete = new Paquete(400.0,200.0,100.0,1000,"", new Ciudad());
+		Paquete paquete = new Paquete(400.0,200.0,100.0,1000, new Ciudad());
 		Camion camion = new Camion();
 
 		//
@@ -26,7 +26,7 @@ public class CamionTest {
 		Boolean valorEsperado = Boolean.FALSE;
 		Boolean valorObtenido = Boolean.TRUE;
 
-		Paquete paquete = new Paquete(400.0,200.0,100.0,20000,"", new Ciudad());
+		Paquete paquete = new Paquete(400.0,200.0,100.0,20000, new Ciudad());
 		Camion camion = new Camion();
 
 		//
@@ -39,7 +39,7 @@ public class CamionTest {
 		Boolean valorEsperado = Boolean.FALSE;
 		Boolean valorObtenido = Boolean.TRUE;
 
-		Paquete paquete = new Paquete(400.0,200.0,100.0,20000,"", new Ciudad());
+		Paquete paquete = new Paquete(400.0,200.0,100.0,20000, new Ciudad());
 		Camion camion = new Camion();
 
 		//
